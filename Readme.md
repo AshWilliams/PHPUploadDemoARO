@@ -57,4 +57,57 @@ Actualmente existen `builders` para diferentes lenguajes y plataformas como `php
 
 ![foto2](https://www.openshift.com/hubfs/Imported_Blog_Media/S2IDeveloperWorkFlow1.png)
 
-Luego vamos a clonar
+Luego vamos a dar un tour sobre la consola de `openshift`. Van a ver que se puede administrar gran parte de nuestro cluster, directamente desde la consola.
+
+Ahora vamos a usar `S2I` para que lea nuestro repositorio, detecte el lenguaje de programación, y nos cree automáticamente una imagen de contenedor, y que además se va a encargar de desplegar esa imagen a nuestro cluster. Todo esto sin `Dockerfiles` ni archivos `YAML`. Solamente con el código fuente y ya está 🤓
+
+Vamos o obtener el comando de conexión para el cliente `oc` desde la consola, dando click en `Copy Login Command`
+![foto4](images/oclogin.JPG)
+
+Nos logueamos desde nuestro terminal usando el comando del paso anterior, muy similar a:
+```
+oc login --token=sha256~eltoken --server=https://api.elserver.eastus2.aroapp.io:6443
+```
+
+Ahora vamos a crear un projecto, con un nombre que nos guste, como `demo`
+```
+oc new-project demo
+```
+
+Luego vamos a usar `S2I` para que lea nuestro repositorio y despliegue la aplicación automáticamente en ARO
+```
+oc new-app https://github.com/AshWilliams/PHPUploadDemoARO --strategy=source
+```
+
+Verificamos con el comando
+```
+oc get all
+```
+
+Luego exponemos el servicio con el siguiente comando
+```
+oc expose svc/phpuploaddemoaro
+```
+
+Obtenemos la url de nuestra aplicación, con la instrucción:
+```
+oc get routes
+```
+
+Luego navegamos a nuestra url y vemos funcionando nuestro sitio 🦾🤓
+![ok](https://ec.europa.eu/programmes/erasmus-plus/sites/default/files/styles/erasmus__rewamp_overview/public/outstanding-success-stories-thumb.png)
+
+
+Para eliminar lo creado, usamos la instrucción:
+```
+oc delete project <project_name>
+```
+
+
+
+
+
+
+
+
+
