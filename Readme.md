@@ -17,7 +17,7 @@ az network vnet subnet update --name master-subnet --resource-group RG-ARO --vne
 
 Creamos una cuenta en https://cloud.redhat.com/openshift/install/azure/aro-provisioned damos click a `Download pull secret`, tal como aparece en la imagen
 
-[foto1](images/foto1.png)
+![foto1](images/foto1.png)
 
 ```
 #Creamos nuestro cluster con la configuración por defecto
