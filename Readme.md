@@ -17,7 +17,7 @@ az aro create -g RG-ARO -n "ARO-CLUSTER-DEMO" --vnet aro-vnet --master-subnet ma
 `consoleProfile` contains the URL for the WEB UI.
 
 
-The command will deploy a cluster with 3 masters and 3 workers. The Masters will be D8s_v3 while the workers D4s_v3 machines deployed into three different Availability Zones within a Region. If these default sizes are not fitting for the purpose they can be parameterized within the create command with the –master-vm-size and –worker-vm-size parameters.
+The command will deploy a cluster with 3 masters and 3 workers. The Masters will be `D8s_v3` while the workers `D4s_v3` machines deployed into three different Availability Zones within a Region. If these default sizes are not fitting for the purpose they can be parameterized within the create command with the –master-vm-size and –worker-vm-size parameters.
 ```
 az aro list-credentials -n "ARO-CLUSTER-DEMO" --resource-group RG-ARO
 ```
