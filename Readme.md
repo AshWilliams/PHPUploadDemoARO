@@ -32,9 +32,24 @@ El comando tomará unos 30-40 minutos en desplegar el cluster. Una vez desplegad
 
 *`consoleProfile` contiene la `URL` para la consola de aro.
 
+También se pueden obtener si ejecutamos el comando:
+```
+az aro list -o table
+```
+
 El comando construirá un cluster con 3 masters y 3 workers. Los nodos master tendrán un vm-size `D8s_v3` mientras los workers, un vm-size `D4s_v3`desplegados en 3 distintas `Availability Zones` dentro de la región elegida. Estos tamaños de máquinas virtuales y nos número de workers, se pueden modificar, por medio de los parámetros `–master-vm-size` y `–worker-vm-size`.
 
 Para obtener las credenciales de ingreso a la consola, ejecutamos el siguiente comando:
 ```
 az aro list-credentials -n "ARO-CLUSTER-DEMO" --resource-group RG-ARO
 ```
+
+## DEMO S2I en Azure RedHat Openshift
+
+S2I es un framework de Openshift, el que utiliza como entrada un contenedor, scripts y el código fuente de tu aplicación y genera como resultado un contenedor listo para ejecutar tu aplicación. Lo que el desarrollador tiene que hacer es escribir los scripts en los que indicará cómo construir el artefacto a partir de su código fuente y cómo ejecutar dicho artefacto.
+
+En la mayoría de casos ni eso, ya que existen scripts estándar para varios lenguajes y arquitecturas. Estos scripts se ejecutarán dentro de un contenedor llamado `builder` que se encargará de construir el contenedor que ejecuta tu aplicación.
+
+Actualmente existen `builders` para diferentes lenguajes y plataformas como `php`, `nodeJS`, `wildfly`, `ruby`, `python` y `perl`, además de la posibilidad de construir tu propio ‘builder’, lo cual es bastante sencillo de realizar.
+
+![foto2](https://www.openshift.com/hubfs/Imported_Blog_Media/S2IDeveloperWorkFlow1.png)
