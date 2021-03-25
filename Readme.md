@@ -29,6 +29,7 @@ az aro create -g RG-ARO -n "ARO-CLUSTER-DEMO" --vnet aro-vnet --master-subnet ma
 El comando tomará unos 30-40 minutos en desplegar el cluster. Una vez desplegado nos va a mostrar un json, donde nos podemos fijar en la siguiente información:
 
 *`apiserverProfile` contiene la `API URL` necesaria para ingresar al cluster, por medio de `oc`
+
 *`consoleProfile` contiene la `URL` para la consola de aro.
 
 El comando construirá un cluster con 3 masters y 3 workers. Los nodos master tendrán un vm-size `D8s_v3` mientras los workers, un vm-size `D4s_v3`desplegados en 3 distintas `Availability Zones` dentro de la región elegida. Estos tamaños de máquinas virtuales y nos número de workers, se pueden modificar, por medio de los parámetros `–master-vm-size` y `–worker-vm-size`.
