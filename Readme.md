@@ -19,16 +19,21 @@ Creamos una cuenta en https://cloud.redhat.com/openshift/install/azure/aro-provi
 
 ![foto1](images/foto1.png)
 
+Luego desde la misma carpeta donde bajamos el `pull secret`, abrimos un terminal y ejecutamos en comando de creación del cluster.
+
 ```
 #Creamos nuestro cluster con la configuración por defecto
 az aro create -g RG-ARO -n "ARO-CLUSTER-DEMO" --vnet aro-vnet --master-subnet master-subnet --worker-subnet worker-subnet --worker-count 3 --pull-secret @pull-secret.txt
 ```
 
-`apiserverProfile` contains the API URL necessary to log in to the cluster
-`consoleProfile` contains the URL for the WEB UI.
+El comando tomará unos 30-40 minutos en desplegar el cluster. Una vez desplegado nos va a mostrar un json, donde nos podemos fijar en la siguiente información:
 
+*`apiserverProfile` contiene la `API URL` necesaria para ingresar al cluster, por medio de `oc`
+*`consoleProfile` contiene la `URL` para la consola de aro.
 
-The command will deploy a cluster with 3 masters and 3 workers. The Masters will be `D8s_v3` while the workers `D4s_v3` machines deployed into three different Availability Zones within a Region. If these default sizes are not fitting for the purpose they can be parameterized within the create command with the –master-vm-size and –worker-vm-size parameters.
+El comando construirá un cluster con 3 masters y 3 workers. Los nodos master tendrán un vm-size `D8s_v3` mientras los workers, un vm-size `D4s_v3`desplegados en 3 distintas `Availability Zones` dentro de la región elegida. Estos tamaños de máquinas virtuales y nos número de workers, se pueden modificar, por medio de los parámetros `–master-vm-size` y `–worker-vm-size`.
+
+Para obtener las credenciales de ingreso a la consola, ejecutamos el siguiente comando:
 ```
 az aro list-credentials -n "ARO-CLUSTER-DEMO" --resource-group RG-ARO
 ```
