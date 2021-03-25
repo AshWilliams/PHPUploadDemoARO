@@ -43,6 +43,9 @@ Para obtener las credenciales de ingreso a la consola, ejecutamos el siguiente c
 ```
 az aro list-credentials -n "ARO-CLUSTER-DEMO" --resource-group RG-ARO
 ```
+Luego ingresamos a nuestra consola por medio de algún navegador y nos logueamos con dichas credenciales
+
+![foto3](images/login.jpg)
 
 ## DEMO S2I en Azure RedHat Openshift
 
@@ -53,3 +56,5 @@ En la mayoría de casos ni eso, ya que existen scripts estándar para varios len
 Actualmente existen `builders` para diferentes lenguajes y plataformas como `php`, `nodeJS`, `wildfly`, `ruby`, `python` y `perl`, además de la posibilidad de construir tu propio ‘builder’, lo cual es bastante sencillo de realizar.
 
 ![foto2](https://www.openshift.com/hubfs/Imported_Blog_Media/S2IDeveloperWorkFlow1.png)
+
+Luego vamos a clonar
